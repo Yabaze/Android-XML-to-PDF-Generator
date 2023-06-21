@@ -535,6 +535,9 @@ public class PdfGenerator {
                 postFailure("Context is null");
                 return false;
             }
+            if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+                return true;
+            }
             return ContextCompat.checkSelfPermission(context,
                     Manifest.permission.READ_EXTERNAL_STORAGE) ==
                     PackageManager.PERMISSION_GRANTED &&
